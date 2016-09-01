@@ -32,6 +32,7 @@ type Client struct {
 
 	// Services
 	HealthCheck HealthCheckService
+	StopsNearMe StopService
 }
 
 // RequestCompletedCallback defines the type of request callback function
@@ -47,6 +48,7 @@ func NewClient(developerID, securityKey string) *Client {
 	}
 
 	c.HealthCheck = &HealthCheckServiceOp{client: c}
+	c.StopsNearMe = &StopServiceOp{client: c}
 
 	return c
 }
